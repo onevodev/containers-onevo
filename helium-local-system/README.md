@@ -10,6 +10,6 @@ Run `make` to build the image, set it up (interactively) and commit the changes 
 
 More documentation will be added as soon as I will have nothing better to do.
 
-####TO DO:####
+#### TO DO: ####
 
 - set option to have a default configuration in order to build the image non-interactively
