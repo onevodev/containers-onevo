@@ -1,5 +1,4 @@
-# build a debian w/ nodered[v3]+influxdb[v2.5]
-
+# build a debian w/ nodered[v3]+influxdb[v2.5]+telegraf setup
 
 FROM debian:bullseye
 
@@ -29,8 +28,9 @@ rm -rf /var/lib/apt/lists/*
 EXPOSE 1880
 EXPOSE 8086
 
-# configure daemons
-COPY conf/telegraf/telegraf.conf	/etc/telegraf/telegraf.conf
+# configure daemons [if needed]
+#COPY conf/telegraf/telegraf.conf	/etc/telegraf/telegraf.conf
+#COPY conf/nodered/flows.json		/home/nodered/.node-red/flows.json
 
 # run daemons
-CMD [ "/scripts/start-daemon.sh" ]
+CMD ["/scripts/start-daemon.sh"]
