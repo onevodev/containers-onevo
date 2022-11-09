@@ -7,7 +7,7 @@ and it is set up for specific database tag keys. Do not attempt to use it for an
 It has a preconfigured telegraf daemon listening on `localhost:8080/telegraf` which gets data from Node-RED and stores it in the DB
 while cleaning up and automatically setting up tag keys.
 
-The container exposes ports _1880_ and _8086_ by default, so take care of that when running it.
+The container exposes ports _1880_ and _8086_ by default, keep that in mind when running it.
 
 Run `make` to build the image, set it up (interactively) and commit the changes into a pre-configured image.
 
