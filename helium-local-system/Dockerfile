@@ -16,12 +16,14 @@ RUN apt update && apt full-upgrade -y && apt install -y \
 
 # install programs
 COPY scripts /scripts
+COPY scripts/start-daemon.sh /usr/local/bin/start-daemon
+RUN chmod -R 755 /scripts/*
 RUN /scripts/install-nodered.sh
 RUN /scripts/install-influxdb.sh
 
 # remove sudo for good measure and cleanup
 ARG SUDO_FORCE_REMOVE=yes
-RUN apt purge -y sudo && apt autoremove -y && rm -rf /var/lib/apt/lists/*
+RUN apt purge -y sudo && apt autoremove -y && rm -rf rm -rf /var/lib/apt/lists/*
 
 # open ports
 EXPOSE 1880
@@ -32,4 +34,4 @@ EXPOSE 8086
 #COPY conf/nodered/flows.json		/home/nodered/.node-red/flows.json
 
 # run daemons
-CMD ["/scripts/start-daemon.sh"]
+CMD ["/usr/local/bin/start-daemon"]
