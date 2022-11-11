@@ -7,7 +7,7 @@ echo "Done."
 
 # start Node-RED
 echo "Starting Node-RED..."
-su -c "exec node-red" nodered >> /var/log/nodered.log 2>&1 &
+exec su -c "exec node-red" nodered >> /var/log/nodered.log 2>&1 &
 echo "Done."
 
 # start Telegraf

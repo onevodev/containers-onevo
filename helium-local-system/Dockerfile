@@ -34,4 +34,4 @@ EXPOSE 8086
 #COPY conf/nodered/flows.json		/home/nodered/.node-red/flows.json
 
 # run daemons
-CMD ["/usr/local/bin/start-daemon"]
+CMD ["exec /usr/local/bin/start-daemon"]
