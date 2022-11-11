@@ -19,11 +19,9 @@ COPY scripts /scripts
 RUN /scripts/install-nodered.sh
 RUN /scripts/install-influxdb.sh
 
-# remove sudo for good measure
+# remove sudo for good measure and cleanup
 ARG SUDO_FORCE_REMOVE=yes
-RUN apt purge -y sudo && apt autoremove -y
-# cleanup
-rm -rf /var/lib/apt/lists/*
+RUN apt purge -y sudo && apt autoremove -y && rm -rf /var/lib/apt/lists/*
 
 # open ports
 EXPOSE 1880
