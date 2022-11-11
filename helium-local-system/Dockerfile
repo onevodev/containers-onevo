@@ -16,8 +16,8 @@ RUN apt update && apt full-upgrade -y && apt install -y \
 
 # install programs
 COPY scripts /scripts
-COPY scripts/start-daemon.sh /usr/local/bin/start-daemon
 RUN chmod -R 755 /scripts/*
+COPY scripts/start-daemon.sh /usr/local/bin/start-daemon
 RUN /scripts/install-nodered.sh
 RUN /scripts/install-influxdb.sh
 
