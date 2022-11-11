@@ -2,7 +2,7 @@
 
 # start InfluxDB
 echo "Starting InfluxDB..."
-exec /usr/lib/influxdb/scripts/influxd-systemd-start.sh >> /var/log/influxdb.log 2>&1
+/usr/lib/influxdb/scripts/influxd-systemd-start.sh >> /var/log/influxdb.log 2>&1
 echo "Done."
 
 # start Node-RED
