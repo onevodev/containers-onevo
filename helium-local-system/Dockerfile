@@ -16,14 +16,13 @@ RUN apt update && apt full-upgrade -y && apt install -y \
 
 # install programs
 COPY scripts /scripts
-RUN chmod -R 755 /scripts/*
-COPY scripts/start-daemon.sh /usr/local/bin/start-daemon
+RUN chmod -R 755 /scripts/* && mv /scripts/{setup.sh,start-daemon.sh} /usr/local/bin/start-daemon
 RUN /scripts/install-nodered.sh
 RUN /scripts/install-influxdb.sh
 
 # remove sudo for good measure and cleanup
 ARG SUDO_FORCE_REMOVE=yes
-RUN apt purge -y sudo && apt autoremove -y && rm -rf rm -rf /var/lib/apt/lists/*
+RUN apt purge -y sudo && apt autoremove -y && rm -rf rm -rf /var/lib/apt/lists/* && rm -rfv /scripts
 
 # open ports
 EXPOSE 1880
