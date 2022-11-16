@@ -3,7 +3,7 @@
 # exit on error
 set -e
 # set image name
-IMAGE="test1"
+IMAGE="helium-local-system"
 # build image
 podman build -t $IMAGE .
 # setup image
