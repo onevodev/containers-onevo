@@ -33,4 +33,4 @@ EXPOSE 8086
 #COPY conf/nodered/flows.json		/home/nodered/.node-red/flows.json
 
 # run daemons
-ENTRYPOINT ["exec /usr/local/bin/start-daemon.sh"]
+ENTRYPOINT "exec /usr/local/bin/start-daemon.sh"
