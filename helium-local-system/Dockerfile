@@ -16,7 +16,7 @@ RUN apt update && apt full-upgrade -y && apt install -y \
 
 # install programs
 COPY scripts /scripts
-RUN chmod -R 755 /scripts/* && mv /scripts/{setup.sh,start-daemon.sh} /usr/local/bin/
+RUN chmod -R 755 /scripts/* && mv /scripts/setup.sh /scripts/start-daemon.sh /usr/local/bin/
 RUN /scripts/install-nodered.sh
 RUN /scripts/install-influxdb.sh
 
@@ -33,4 +33,4 @@ EXPOSE 8086
 #COPY conf/nodered/flows.json		/home/nodered/.node-red/flows.json
 
 # run daemons
-CMD ["exec /usr/local/bin/start-daemon.sh"]
+ENTRYPOINT ["exec /usr/local/bin/start-daemon.sh"]
