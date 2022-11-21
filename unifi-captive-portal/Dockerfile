@@ -1,5 +1,6 @@
 FROM debian:bullseye
 
+MAINTAINER MTF <m.ferrante@onevo.it>
 # Dockerfile to build a working Unifi captive controller.
 #
 # About the network: the container has to expose many ports, this may or may not
