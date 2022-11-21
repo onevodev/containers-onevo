@@ -1,6 +1,7 @@
 # build a debian w/ nodered[v3]+influxdb[v2.5]+telegraf setup
 
-FROM debian:bullseye
+#FROM debian:bullseye
+FROM debian:latest
 
 MAINTAINER MTF <m.ferrante@onevo.it>
 
