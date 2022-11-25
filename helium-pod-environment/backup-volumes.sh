@@ -6,7 +6,7 @@ source .env
 
 for volume in $VOLUMES; do
 
-	mkdir -p $BAK_DIR/$volume
+	[ -d $BAK_DIR/$volume ] || mkdir -p $BAK_DIR/$volume
 	podman volume export $volume -o $BAK_DIR/$volume/$volume-$(date -I).tar
 
 done
