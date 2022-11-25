@@ -1,7 +1,5 @@
 #!/bin/sh
 
-#!/bin/sh
-
 set -e
 # env vars
 source .env
