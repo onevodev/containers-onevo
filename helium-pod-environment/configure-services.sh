@@ -23,7 +23,7 @@ setup_configs () {
 		if [ -r ${CONF_DIR}/${conf} ]; then
 			case $conf in
 			"telegraf.conf")
-				[ -n "$(podman ps | grep -w {TELEGRAF_CONTAINER}| grep -v CONTAINER)" ] && CONTAINER=${TELEGRAF_CONTAINER}
+				[ -n "$(podman ps | grep -w ${TELEGRAF_CONTAINER}| grep -v CONTAINER)" ] && CONTAINER=${TELEGRAF_CONTAINER}
 				LOCATION="/etc/telegraf/telegraf.conf"
 				;;
 			*)
