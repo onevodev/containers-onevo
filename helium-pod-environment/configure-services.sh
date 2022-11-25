@@ -31,7 +31,7 @@ setup_files () {
 				exit 0
 				;;
 			esac
-			[ -f "${CONTAINER}" ] && podman cp ${CONF_DIR}/${conf} ${CONTAINER}:${LOCATION}
+			[ -f "${CONTAINER}" ] && podman cp ${CONF_DIR}/${conf} ${CONTAINER}:${LOCATION} && podman restart ${CONTAINER}
 		fi
 	done
 }
