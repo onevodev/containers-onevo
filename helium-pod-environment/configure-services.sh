@@ -30,7 +30,10 @@ setup_configs () {
 				exit 0
 				;;
 			esac
-			[ -n "${CONTAINER}" ] && podman cp ${CONF_DIR}/${conf} ${CONTAINER}:${LOCATION} && podman restart ${CONTAINER}
+			[ -n "${CONTAINER}" ] && ( \
+			echo "Found ${conf} for container ${CONTAINER}."
+			podman cp ${CONF_DIR}/${conf} ${CONTAINER}:${LOCATION} && podman restart ${CONTAINER}
+			)
 			unset CONTAINER
 		fi
 	done
