@@ -18,6 +18,8 @@ instances. **Take care** of the names of the volumes as well, as there should be
 
 ## HOWTO:
 
+`chmod 700 *.sh` in the root directory should get you started.
+
 The scripts are set up in the following way, in the order they should be run:
 
 - `setup-environment.sh` : set up a pod with options specified in `POD_OPTS`, volumes specified in `VOLUMES` and containers necessary. [*Node-RED, InfluxDB and Telegraf*]
