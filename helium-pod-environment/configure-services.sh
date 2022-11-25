@@ -23,7 +23,7 @@ setup_configs () {
 		if [ -r ${CONF_DIR}/${conf} ]; then
 			case $conf in
 			"telegraf.conf")
-				CONTAINER=${TELEGRAF_CONTAINER}
+				[ -n "$(podman ps | grep -w {TELEGRAF_CONTAINER}| grep -v CONTAINER)" ] && CONTAINER=${TELEGRAF_CONTAINER}
 				LOCATION="/etc/telegraf/telegraf.conf"
 				;;
 			*)
@@ -31,6 +31,7 @@ setup_configs () {
 				;;
 			esac
 			[ -n "${CONTAINER}" ] && podman cp ${CONF_DIR}/${conf} ${CONTAINER}:${LOCATION} && podman restart ${CONTAINER}
+			unset CONTAINER
 		fi
 	done
 }
