@@ -5,5 +5,5 @@ set -e
 source .env
 
 # start pod if stopped
-[ -z "$(podman pod ps | grep -v CONTAINER | grep -w ${POD_NAME})" ] || (echo "A pod named ${POD_NAME} already exists!" ; exit 1)
+[ -z "$(podman pod ps | grep -w ${POD_NAME} | grep -v CONTAINER)" ] || (echo "A pod named '${POD_NAME}' already exists!" ; exit 1)
 podman pod start ${POD_NAME}

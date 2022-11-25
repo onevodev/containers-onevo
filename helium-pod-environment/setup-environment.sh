@@ -5,13 +5,13 @@ set -e
 source .env
 
 # create pod if it doesn't exist
-[ -z "$(podman pod ps | grep -v CONTAINER | grep -w ${POD_NAME})" ] || (echo "A pod named ${POD_NAME} already exists!" ; exit 1)
+[ -z "$(podman pod ps | grep -w ${POD_NAME} | grep -v CONTAINER)" ] || (echo "A pod named '${POD_NAME}' already exists!" ; exit 1)
 echo "Creating pod..."
 podman pod create ${POD_OPTS} ${POD_NAME}
 
 # create volumes [if they don't exist]
 for volume in ${VOLUMES}; do
-	[ -z "$(podman volume ls | grep ${volume})" ] && podman volume create $volume
+	[ -z "$(podman volume ls | grep -w ${volume})" ] && podman volume create $volume
 done
 
 # start nodered
