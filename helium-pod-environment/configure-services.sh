@@ -18,6 +18,24 @@ setup_influx () {
 	podman exec -it ${INFLUX_CONTAINER} influx setup
 }
 
+# check if config files are present and copy them to the containers
+setup_files () {
+	for conf in ${CONF_AVAILABLE}; do
+		if [ -r ${CONF_DIR}/${conf} ]; then
+			case $conf in
+			"telegraf.conf")
+				CONTAINER=${TELEGRAF_CONTAINER}
+				LOCATION="/etc/telegraf/telegraf.conf"
+				;;
+			*)
+				exit 0
+				;;
+			esac
+			[ -f "${CONTAINER}" ] && podman cp ${CONF_DIR}/${conf} ${CONTAINER}:${LOCATION}
+		fi
+	done
+}
+
 case $to_setup in
 
 	"nodered")
@@ -26,11 +44,15 @@ case $to_setup in
 	"influx")
 		setup_influx
 		;;
-	"both")
+	"configs")
+		setup_files
+		;;
+	"all")
 		setup_nodered
 		setup_influx
+		setup_files
 		;;
 	*)
-		echo "Available options: nodered, telegraf, both."
+		echo "Available options: nodered, influx, configs, all."
 		;;
 esac

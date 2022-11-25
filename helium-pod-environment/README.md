@@ -8,6 +8,7 @@ for easy deployment. Set up the environment, clone the configs and just by speci
 ## TODO
 
 - in `backup-volumes.sh` set up deletion for only certain volumes, although might be redundant with podman CLI itself.
+- in `configure-service.sh` add option for more config files
 
 ## SETUP:
 
@@ -22,7 +23,7 @@ The scripts are set up in the following way, in the order they should be run:
 - `setup-environment.sh` : set up a pod with options specified in `POD_OPTS`, volumes specified in `VOLUMES` and containers necessary. [*Node-RED, InfluxDB and Telegraf*]
 
 - `configure-services.sh` : since the system comes totally unconfigured, this script executes setup scripts in Node-RED and InfluxDB containers.  
-Also, if present in `CONF_DIR`, it will copy the `telegraf.conf` configuration to the telegraf container and restart it.
+Also, if present in `CONF_DIR`, it will copy the `CONF_AVAILABLE` configuration files to the respective container and restart it. For now only `telegraf.conf` is supported.
 
 - `start.sh` , `stop.sh` : these are easy, idiot-proof way to start and stop the pod, with `stop.sh` supporting `--rm` option to delete the pod (*but not the volumes*).
 
