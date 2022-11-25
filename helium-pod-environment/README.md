@@ -2,7 +2,7 @@
 
 **This environment consists of a Node-RED, InfluxDB (*v2*) and Telegraf environment to be set up for local LoRaWAN gateways data collection and visualizations.**  
 The deployment is raw, and the subsequent configuration is supposed to be stored inside volumes automatically created and attached.  
-The environment is supposed to work with [this repo](https://github.com/onevodev/somerepo), which contains Node-RED flows and custom configurations
+The environment is supposed to work along with [this repo](https://github.com/onevodev/somerepo), which contains Node-RED flows and custom configurations
 for easy deployment. Set up the environment, clone the configs and just by specifying the identificative parameters of each pod you should be good to go.
 
 ## TODO
