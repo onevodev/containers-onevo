@@ -17,9 +17,8 @@ setup_influx () {
 	echo "Setting up InfluxDB..."
 	podman exec -it ${INFLUX_CONTAINER} influx setup
 }
-
-# check if config files are present and copy them to the containers
-setup_files () {
+# check if config files are present and copy them to the containers, restarting them after
+setup_configs () {
 	for conf in ${CONF_AVAILABLE}; do
 		if [ -r ${CONF_DIR}/${conf} ]; then
 			case $conf in
@@ -35,7 +34,7 @@ setup_files () {
 		fi
 	done
 }
-
+# configure one or all containes (default: all)
 case $to_setup in
 
 	"nodered")
@@ -45,12 +44,12 @@ case $to_setup in
 		setup_influx
 		;;
 	"configs")
-		setup_files
+		setup_configs
 		;;
 	"all")
 		setup_nodered
 		setup_influx
-		setup_files
+		setup_configs
 		;;
 	*)
 		echo "Available options: nodered, influx, configs, all."

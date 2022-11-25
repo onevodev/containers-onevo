@@ -23,6 +23,7 @@ The scripts are set up in the following way, in the order they should be run:
 - `setup-environment.sh` : set up a pod with options specified in `POD_OPTS`, volumes specified in `VOLUMES` and containers necessary. [*Node-RED, InfluxDB and Telegraf*]
 
 - `configure-services.sh` : since the system comes totally unconfigured, this script executes setup scripts in Node-RED and InfluxDB containers.  
+You can choose what containers to configure, default is *all*. Run `./configure-services.sh --help` for options.  
 Also, if present in `CONF_DIR`, it will copy the `CONF_AVAILABLE` configuration files to the respective container and restart it. For now only `telegraf.conf` is supported.
 
 - `start.sh` , `stop.sh` : these are easy, idiot-proof way to start and stop the pod, with `stop.sh` supporting `--rm` option to delete the pod (*but not the volumes*).
