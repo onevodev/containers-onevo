@@ -30,6 +30,6 @@ Also, if present in `CONF_DIR`, it will copy the `CONF_AVAILABLE` configuration 
 
 - `start.sh` , `stop.sh` : these are easy, idiot-proof way to start and stop the pod, with `stop.sh` supporting `--rm` option to delete the pod (*but not the volumes*).
 
-- `backup-volumes.sh` : backs up `VOLUMES` tarballs inside `BAK_DIR`, by making a subfolder for each volume and appending current date to each backup. *Note that this will make multiple backups a day overwrite each other, as date format is* `date -I`.
+- `backup-volumes.sh` : backs up `VOLUMES` tarballs inside `BAK_DIR`, by making a subfolder for each volume and appending current date and time to each backup.
 
 - `delete-volumes.sh` : completely deletes `VOLUMES`, may be useful in case of wanting to import an old volume backup.
