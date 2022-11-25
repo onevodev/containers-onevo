@@ -7,3 +7,4 @@ source .env
 # start pod if stopped
 [ -z "$(podman pod ps | grep -v CONTAINER | grep -w ${POD_NAME})" ] && (echo "Can't find pod named ${POD_NAME}!" ; exit 1)
 podman pod stop ${POD_NAME}
+[ "${1}" == "--rm" ] && podman pod rm ${POD_NAME}
