@@ -8,7 +8,7 @@ for easy deployment. Set up the environment, clone the configs and just by speci
 ## TODO
 
 - in `backup-volumes.sh` set up deletion for only certain volumes, although might be redundant with podman CLI itself.
-- in `configure-service.sh` add option for more config files
+- in `configure-service.sh` add option for more config files.
 
 ## SETUP:
 
