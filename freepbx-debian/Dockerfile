@@ -1,4 +1,4 @@
-FROM localhost/debian-toi:latest
+FROM localhost/debian-s6-init:latest
 LABEL maintainer="Matteo Ferrante (m.ferrante at onevo dot it)"
 LABEL creator="Dave Conroy (dave at tiredofit dot ca)"
 
