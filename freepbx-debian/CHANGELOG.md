@@ -1,7 +1,7 @@
 ## 5.2.1 2022-11-30 <m.ferrante at onevo dot it>
 
    ### Changed
-      - updated debian version and packages version (big change) i.e. Asterisk 17.9.4, freePBX 15.0.16, Node 18 LTS...
+      - updated debian version and packages version (big change) i.e. Asterisk 17.9.4, freePBX 16.0.26, Node 18 LTS...
       - fix for container init script 10-freepbx crontab permission (asterisk can't edit its crontab)
       - edited container init script 09-mariadb for mariadb (mysql -> mariadb)
       - something else (?)
