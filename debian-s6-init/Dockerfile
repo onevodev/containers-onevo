@@ -293,7 +293,9 @@ RUN	mkdir -p /assets/cron && \
 		/usr/share/omf/*/*-*.emf
 
 ### Set Shell to Bash
-SHELL ["/bin/bash", "-c"]
+#SHELL ["/bin/bash", "-c"]
+# SHELL is not supported for OCI image format, [/bin/bash -c] will be ignored. Must use `docker` format
+# it should be bash by default anyways
 
 ### Networking configuration
 EXPOSE 2020/TCP 10050/TCP
