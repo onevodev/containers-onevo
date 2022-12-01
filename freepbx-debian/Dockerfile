@@ -3,7 +3,8 @@ LABEL maintainer="Matteo Ferrante (m.ferrante at onevo dot it)"
 LABEL creator="Dave Conroy (dave at tiredofit dot ca)"
 
 ### Set defaults
-ENV	ASTERISK_VERSION=17.9.4 \
+#ENV	ASTERISK_VERSION=17.9.4 \
+ENV	ASTERISK_VERSION=18.15.0 \
 	BCG729_VERSION=1.1.1 \
 	DONGLE_VERSION=20200610 \
 	G72X_CPUHOST=penryn \
