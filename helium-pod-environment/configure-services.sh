@@ -19,6 +19,7 @@ setup_influx () {
 }
 # check if config files are present and copy them to the containers, restarting them after
 setup_configs () {
+	mkdir -p conf
 	for conf in ${CONF_AVAILABLE}; do
 		if [ -r ${CONF_DIR}/${conf} ]; then
 			case $conf in
