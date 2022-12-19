@@ -1,6 +1,6 @@
 #!/bin/bash
-
 set -e
+
 # env vars
 source ./.env
 
@@ -24,7 +24,7 @@ setup_configs () {
 		if [ -r ${CONF_DIR}/${conf} ]; then
 			case $conf in
 			"telegraf.conf")
-				[ -n "$(podman ps | grep -w ${TELEGRAF_CONTAINER}| grep -v CONTAINER)" ] && CONTAINER=${TELEGRAF_CONTAINER}
+				[ -n "$(podman ps -a | grep -w ${TELEGRAF_CONTAINER}| grep -v CONTAINER)" ] && CONTAINER=${TELEGRAF_CONTAINER}
 				LOCATION="/etc/telegraf/telegraf.conf"
 				;;
 			*)
