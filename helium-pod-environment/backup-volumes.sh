@@ -2,7 +2,7 @@
 
 set -e
 # env vars
-source .env
+source ./.env
 
 for volume in $VOLUMES; do
 	[ -z "$(podman volume ls | grep -w $volume)" ] && echo "Can't seem to find a volume named '$volume'!" || ( \

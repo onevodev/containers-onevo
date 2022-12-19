@@ -2,7 +2,7 @@
 
 set -e
 # env vars
-source .env
+source ./.env
 
 # create pod if it doesn't exist
 [ -z "$(podman pod ps | grep -w ${POD_NAME} | grep -v CONTAINER)" ] || (echo "A pod named '${POD_NAME}' already exists!" ; exit 1)

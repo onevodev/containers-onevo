@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # env vars
-source .env
+source ./.env
 
 echo "Deleting..."
 for volume in $VOLUMES; do

@@ -2,7 +2,7 @@
 
 set -e
 # env vars
-source .env
+source ./.env
 
 to_setup="${1:-both}"
 
