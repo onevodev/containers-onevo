@@ -16,6 +16,10 @@ The system is made to be replicable just by copying the repository to another di
 the containers are clones of each other and only differ by the name they're called. It should become easy then to deploy and configure multiple 
 instances. **Take care** of the names of the volumes as well, as there should be one for each container, in order to keep configs and data.
 
+## NOTES:
+
+Take care that configuring Node-RED, `settings.js` default location is in `/usr/src`, it **needs** to be in `/data/settings.js` to be preserved.
+
 ## HOWTO:
 
 `chmod 700 *.sh` in the root directory should get you started.
