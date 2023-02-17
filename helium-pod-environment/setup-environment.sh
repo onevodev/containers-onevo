@@ -16,17 +16,17 @@ done
 
 # start nodered
 echo "Starting up Node-RED..."
-podman run -d --pod ${POD_NAME} -v nodered:${NRED_DATA} --name ${NRED_CONTAINER} nodered/node-red
+podman run -d --pod ${POD_NAME} -v nodered:${NRED_DATA} --name ${NRED_CONTAINER} docker.io/nodered/node-red
 
 # start influxdb
 echo "Starting up InfluxDB..."
-podman run -d --pod ${POD_NAME} -v influx:${INFLUX_DATA} --name ${INFLUX_CONTAINER} influxdb
+podman run -d --pod ${POD_NAME} -v influx:${INFLUX_DATA} --name ${INFLUX_CONTAINER} docker.io/library/influxdb
 
 # start telegraf
 echo "Starting up Telegraf..."
-#podman run -d --pod ${POD_NAME} -v telegraf:${TELEGRAF_DATA} --name ${TELEGRAF_CONTAINER} telegraf
+#podman run -d --pod ${POD_NAME} -v telegraf:${TELEGRAF_DATA} --name ${TELEGRAF_CONTAINER} docker.io/library/telegraf
 # temporary fix as per https://github.com/influxdata/influxdata-docker/issues/646
-podman run -d --pod ${POD_NAME} -v telegraf:${TELEGRAF_DATA} --name ${TELEGRAF_CONTAINER} --entrypoint=telegraf telegraf
+podman run -d --pod ${POD_NAME} -v telegraf:${TELEGRAF_DATA} --name ${TELEGRAF_CONTAINER} --entrypoint=telegraf docker.io/library/telegraf
 
 echo "Done"
 
