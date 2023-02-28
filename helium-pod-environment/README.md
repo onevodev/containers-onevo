@@ -1,39 +1,22 @@
-# HELIUM ENVIRONMENT FOR LOCAL DEPLOYMENT
+### HELIUM POD ENVIRONMENT
 
-**This environment consists of a Node-RED, InfluxDB (*v2*) and Telegraf environment to be set up for local LoRaWAN gateways data collection and visualizations.**  
-The deployment is raw, and the subsequent configuration is supposed to be stored inside volumes automatically created and attached.  
-The environment is supposed to work along with [this repo](https://github.com/onevodev/somerepo), which contains Node-RED flows and custom configurations
-for easy deployment. Set up the environment, clone the configs and just by specifying the identificative parameters of each pod you should be good to go.
+This system allows to.
 
-## TODO
 
-- in `backup-volumes.sh` set up deletion for only certain volumes, although might be redundant with podman CLI itself.
-- in `configure-service.sh` add option for more config files.
+```
+backup-volumes.sh
 
-## SETUP:
+conf
 
-The system is made to be replicable just by copying the repository to another directory and *only* editing the `.env` file, so that
-the containers are clones of each other and only differ by the name they're called. It should become easy then to deploy and configure multiple 
-instances. **Take care** of the names of the volumes as well, as there should be one for each container, in order to keep configs and data.
+configure-services.sh
 
-## NOTES:
+delete-volumes.sh
 
-Take care that configuring Node-RED, `settings.js` default location is in `/usr/src`, it **needs** to be in `/data/settings.js` to be preserved.
+env .env
 
-## HOWTO:
+setup-environment.sh
 
-`chmod 700 *.sh` in the root directory should get you started.
+start.sh
 
-The scripts are set up in the following way, in the order they should be run:
-
-- `setup-environment.sh` : set up a pod with options specified in `POD_OPTS`, volumes specified in `VOLUMES` and containers necessary. [*Node-RED, InfluxDB and Telegraf*]
-
-- `configure-services.sh` : since the system comes totally unconfigured, this script executes setup scripts in Node-RED and InfluxDB containers.  
-You can choose what containers to configure, default is *all*. Run `./configure-services.sh --help` for options.  
-Also, if present in `CONF_DIR`, it will copy the `CONF_AVAILABLE` configuration files to the respective container and restart it. For now only `telegraf.conf` is supported.
-
-- `start.sh` , `stop.sh` : these are easy, idiot-proof way to start and stop the pod, with `stop.sh` supporting `--rm` option to delete the pod (*but not the volumes*).
-
-- `backup-volumes.sh` : backs up `VOLUMES` tarballs inside `BAK_DIR`, by making a subfolder for each volume and appending current date and time to each backup.
-
-- `delete-volumes.sh` : completely deletes `VOLUMES`, may be useful in case of wanting to import an old volume backup.
+stop.sh
+```
